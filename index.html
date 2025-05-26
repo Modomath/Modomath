@@ -33,7 +33,7 @@
       color: #4b5563;
       margin-bottom: 32px;
     }
-    .email-signup {
+    .email-signup-btn {
       font-size: 1rem;
       padding: 12px 20px;
       border: 2px solid #2563eb;
@@ -42,6 +42,7 @@
       border-radius: 6px;
       text-decoration: none;
       font-weight: bold;
+      cursor: pointer;
     }
     footer {
       position: absolute;
@@ -49,42 +50,54 @@
       font-size: 0.9rem;
       color: #9ca3af;
     }
-      form {
-    margin-top: 2rem;
-  }
-  
-  input[type="email"] {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    width: 250px;
-  }
-  
-  button {
-    padding: 0.5rem 1rem;
-    margin-left: 0.5rem;
-    background-color: #0074d9;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #005fa3;
-}
+    form {
+      margin-top: 1.5rem;
+    }
+    input[type="email"] {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 250px;
+    }
+    button[type="submit"] {
+      padding: 0.5rem 1rem;
+      margin-left: 0.5rem;
+      background-color: #0074d9;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover {
+      background-color: #005fa3;
+    }
   </style>
 </head>
 <body>
   <img src="logo.png" alt="ModoMath logo" class="logo" />
   <h1>Matemáticas para el mundo real</h1>
   <p class="subtitle">Explora. Representa. Resuelve</p>
-  <a href="https://formspree.io/f/mzzrlkjr" class="email-signup">Únete a la comunidad</a>
-  <footer>© 2025 ModoMath      hola@modomath.com</footer>
+
+  <!-- Trigger Button -->
+  <button id="joinButton" class="email-signup-btn">Únete a la comunidad</button>
+
+  <!-- Hidden Form -->
+  <div id="signupForm" style="display: none;">
+    <form action="https://formspree.io/f/mzzrlkjr" method="POST">
+      <label for="email">Suscríbete para novedades:</label><br>
+      <input type="email" name="email" id="email" placeholder="Tu correo electrónico" required>
+      <button type="submit">Unirse</button>
+    </form>
+  </div>
+
+  <footer>© 2025 ModoMath &nbsp;&nbsp;&nbsp; hola@modomath.com</footer>
+
+  <!-- Toggle Script -->
+  <script>
+    document.getElementById("joinButton").addEventListener("click", function () {
+      var form = document.getElementById("signupForm");
+      form.style.display = form.style.display === "none" ? "block" : "none";
+    });
+  </script>
 </body>
 </html>
-<form action="https://formspree.io/f/mzzrlkjr" method="POST">
-  <label for="email">Suscríbete para novedades:</label><br>
-  <input type="email" name="email" id="email" placeholder="Tu correo electrónico" required>
-  <button type="submit">Unirse</button>
-</form>
