@@ -20,19 +20,23 @@
       height: 100vh;
       text-align: center;
     }
+
     img.logo {
       max-width: 280px;
       margin-bottom: 24px;
     }
+
     h1 {
       font-size: 1.8rem;
       margin-bottom: 8px;
     }
+
     p.subtitle {
       font-size: 1.2rem;
       color: #4b5563;
       margin-bottom: 32px;
     }
+
     .email-signup-btn {
       font-size: 1rem;
       padding: 12px 20px;
@@ -40,25 +44,41 @@
       background: none;
       color: #2563eb;
       border-radius: 6px;
-      text-decoration: none;
       font-weight: bold;
       cursor: pointer;
     }
+
     footer {
       position: absolute;
       bottom: 20px;
       font-size: 0.9rem;
       color: #9ca3af;
     }
-    form {
+
+    #signupForm {
       margin-top: 1.5rem;
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.5s ease;
     }
+
+    #signupForm.show {
+      opacity: 1;
+      max-height: 200px;
+    }
+
+    form {
+      margin-top: 1rem;
+    }
+
     input[type="email"] {
       padding: 0.5rem;
       border: 1px solid #ccc;
       border-radius: 6px;
       width: 250px;
     }
+
     button[type="submit"] {
       padding: 0.5rem 1rem;
       margin-left: 0.5rem;
@@ -68,8 +88,33 @@
       border-radius: 6px;
       cursor: pointer;
     }
+
     button[type="submit"]:hover {
       background-color: #005fa3;
+    }
+
+    #confirmation {
+      margin-top: 1rem;
+      color: #16a34a;
+      font-weight: bold;
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    #confirmation::before {
+      content: "✅ ";
+    }
+
+    #errorMsg {
+      margin-top: 1rem;
+      color: #dc2626;
+      font-weight: bold;
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
@@ -78,25 +123,64 @@
   <h1>Matemáticas para el mundo real</h1>
   <p class="subtitle">Explora. Representa. Resuelve</p>
 
-  <!-- Trigger Button -->
   <button id="joinButton" class="email-signup-btn">Únete a la comunidad</button>
 
-  <!-- Hidden Form -->
-  <div id="signupForm" style="display: none;">
-    <form action="https://formspree.io/f/mzzrlkjr" method="POST">
+  <div id="signupForm">
+    <form id="emailForm" action="https://formspree.io/f/mzzrlkjr" method="POST">
       <label for="email">Suscríbete para novedades:</label><br>
       <input type="email" name="email" id="email" placeholder="Tu correo electrónico" required>
       <button type="submit">Unirse</button>
     </form>
+    <div id="confirmation">¡Gracias por unirte!</div>
+    <div id="errorMsg">Por favor, introduce un correo válido.</div>
   </div>
 
   <footer>© 2025 ModoMath &nbsp;&nbsp;&nbsp; hola@modomath.com</footer>
 
-  <!-- Toggle Script -->
   <script>
-    document.getElementById("joinButton").addEventListener("click", function () {
-      var form = document.getElementById("signupForm");
-      form.style.display = form.style.display === "none" ? "block" : "none";
+    const joinButton = document.getElementById("joinButton");
+    const signupForm = document.getElementById("signupForm");
+    const emailForm = document.getElementById("emailForm");
+    const confirmation = document.getElementById("confirmation");
+    const errorMsg = document.getElementById("errorMsg");
+    const emailInput = document.getElementById("email");
+
+    joinButton.addEventListener("click", () => {
+      signupForm.classList.toggle("show");
+      confirmation.style.display = "none";
+      errorMsg.style.display = "none";
+    });
+
+    emailForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        errorMsg.style.display = "block";
+        confirmation.style.display = "none";
+        return;
+      }
+
+      errorMsg.style.display = "none";
+
+      const formData = new FormData(emailForm);
+      fetch(emailForm.action, {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          emailForm.reset();
+          confirmation.style.display = "block";
+          setTimeout(() => {
+            signupForm.classList.remove("show");
+            confirmation.style.display = "none";
+          }, 5000);
+        } else {
+          alert("Hubo un error. Inténtalo más tarde.");
+        }
+      });
     });
   </script>
 </body>
