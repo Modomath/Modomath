@@ -49,6 +49,30 @@
       font-size: 0.9rem;
       color: #9ca3af;
     }
+      form {
+    margin-top: 2rem;
+  }
+  
+  input[type="email"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 250px;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    background-color: #0074d9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #005fa3;
+}
   </style>
 </head>
 <body>
@@ -59,3 +83,8 @@
   <footer>© 2025 ModoMath</footer>
 </body>
 </html>
+<form action="https://formspree.io/f/mzzrlkjr" method="POST">
+  <label for="email">Suscríbete para novedades:</label><br>
+  <input type="email" name="email" id="email" placeholder="Tu correo electrónico" required>
+  <button type="submit">Unirse</button>
+</form>
