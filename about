@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sobre ModoMath</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      background-color: #f9fafb;
+      color: #1f2937;
+      text-align: center;
+    }
+
+    header {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+
+    .pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .pillars div {
+      font-size: 1.1rem;
+    }
+
+    .intro {
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .links a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #9ca3af;
+    }
+
+    @media(min-width: 600px) {
+      .pillars {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .pillars div {
+        width: 200px;
+      }
+
+      .links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Sobre ModoMath</h1>
+    <p>Creemos en dar espacio para pensar, explorar y equivocarse con sentido.</p>
+  </header>
+
+  <section class="pillars">
+    <div>🔍 Resolución de problemas</div>
+    <div>🧠 Razonamiento visual</div>
+    <div>💬 Comunicación matemática</div>
+    <div>🎯 Centrado en competencias</div>
+    <div>📘 Alineado con la LOMLOE</div>
+  </section>
+
+  <section class="intro">
+    <p>
+      ModoMath nace del deseo de hacer las matemáticas más accesibles, visuales y conectadas con la vida real.
+      Diseñamos cada unidad para que el alumnado explore ideas, resuelva con sentido y se comunique con claridad—
+      todo alineado con la LOMLOE y con mínima preparación para el profesorado.
+    </p>
+  </section>
+
+  <div class="links">
+    <a href="recursos.html">¿Eres profe? Recursos</a>
+    <a href="formacion.html">¿Buscas formación? Mini Cursos</a>
+    <a href="blog.html">¿Quieres más información? Aprende más</a>
+  </div>
+
+  <footer>© 2025 ModoMath &nbsp;&nbsp;&nbsp; hola@modomath.com</footer>
+
+</body>
+</html>
