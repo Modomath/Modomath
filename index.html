@@ -1,156 +1,180 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ModoMath — Próximamente</title>
+  <title>ModoMath</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f9fafb;
+      background-color: #ffffff;
       color: #1f2937;
+      scroll-behavior: smooth;
+    }
+
+    section {
+      padding: 4rem 1rem;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1, h2 {
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #4b5563;
+    }
+
+    .pillars {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
+      gap: 1rem;
+      margin: 2rem 0;
     }
 
-    img.logo {
-      max-width: 280px;
-      margin-bottom: 24px;
+    .pillars div {
+      font-size: 1.1rem;
     }
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 8px;
+    .section-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
     }
 
-    p.subtitle {
-      font-size: 1.2rem;
-      color: #4b5563;
-      margin-bottom: 32px;
-    }
-
-    .email-signup-btn {
-      font-size: 1rem;
-      padding: 12px 20px;
-      border: 2px solid #2563eb;
-      background: none;
+    .section-links a {
       color: #2563eb;
-      border-radius: 6px;
+      text-decoration: none;
       font-weight: bold;
-      cursor: pointer;
     }
 
     footer {
-      position: absolute;
-      bottom: 20px;
+      text-align: center;
+      padding: 2rem 1rem;
+      background-color: #f3f4f6;
       font-size: 0.9rem;
-      color: #9ca3af;
+      color: #6b7280;
     }
 
-    #signupForm {
-      margin-top: 1.5rem;
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.5s ease;
+    input, button {
+      font-family: inherit;
+      font-size: 1rem;
     }
 
-    #signupForm.show {
-      opacity: 1;
-      max-height: 200px;
-    }
+    @media(min-width: 600px) {
+      .pillars {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
 
-    form {
-      margin-top: 1rem;
-    }
+      .pillars div {
+        width: 200px;
+      }
 
-    input[type="email"] {
-      padding: 0.5rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      width: 250px;
-    }
-
-    button[type="submit"] {
-      padding: 0.5rem 1rem;
-      margin-left: 0.5rem;
-      background-color: #0074d9;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    button[type="submit"]:hover {
-      background-color: #005fa3;
-    }
-
-    #confirmation {
-      margin-top: 1rem;
-      color: #16a34a;
-      font-weight: bold;
-      display: none;
-      animation: fadeIn 0.3s ease-in-out;
-    }
-
-    #confirmation::before {
-      content: "✅ ";
-    }
-
-    #errorMsg {
-      margin-top: 1rem;
-      color: #dc2626;
-      font-weight: bold;
-      display: none;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      .section-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <img src="logo.png" alt="ModoMath logo" class="logo" />
-  <h1>Matemáticas para el mundo real</h1>
-  <p class="subtitle">Explora. Representa. Resuelve</p>
 
-  <button id="joinButton" class="email-signup-btn">Únete a la comunidad</button>
+  <!-- HERO -->
+  <section id="hero">
+    <h1>ModoMath</h1>
+    <p>Creemos que aprender matemáticas puede ser visual, real y comprensible.</p>
+    <div class="section-links">
+      <a href="#sobre">Conoce ModoMath</a>
+      <a href="#recursos">Recursos</a>
+      <a href="#formacion">Formación</a>
+    </div>
+  </section>
 
-  <div id="signupForm">
-    <form id="emailForm" action="https://formspree.io/f/mzzrlkjr" method="POST">
-      <input type="email" name="email" id="email" placeholder="Tu correo electrónico" required>
-      <button type="submit">Unirse</button>
+  <!-- SOBRE -->
+  <section id="sobre">
+    <h2>Sobre ModoMath</h2>
+    <p>Creemos en dar espacio para pensar, explorar y equivocarse con sentido.</p>
+    <div class="pillars">
+      <div>🔍 Resolución de problemas</div>
+      <div>🧠 Razonamiento visual</div>
+      <div>💬 Comunicación matemática</div>
+      <div>🎯 Centrado en competencias</div>
+      <div>📘 Alineado con la LOMLOE</div>
+    </div>
+    <p>
+      ModoMath nace del deseo de hacer las matemáticas más accesibles, visuales y conectadas con la vida real.
+      Diseñamos cada unidad para que el alumnado explore ideas, resuelva con sentido y se comunique con claridad—
+      todo alineado con la LOMLOE y con mínima preparación para el profesorado.
+    </p>
+  </section>
+
+  <!-- RECURSOS -->
+  <section id="recursos">
+    <h2>Recursos para el Aula</h2>
+    <p>Estamos preparando recursos descargables gratuitos y kits completos de unidad.</p>
+    <p><strong>Próximamente</strong></p>
+  </section>
+
+  <!-- FORMACION -->
+  <section id="formacion">
+    <h2>Formación Docente</h2>
+    <p>Mini-cursos sobre enseñanza visual, resolución de problemas y diseño curricular.</p>
+    <p><strong>Próximamente</strong></p>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <h2>Explora nuestras ideas</h2>
+    <p>Artículos sobre educación matemática, metodologías y reflexiones del aula.</p>
+    <p><strong>Próximamente</strong></p>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section id="newsletter">
+    <h2>Únete a la comunidad ModoMath</h2>
+    <p style="color: #6b7280;">
+      Recibe novedades, recursos gratuitos y próximos lanzamientos directamente en tu correo.
+    </p>
+    <form id="emailForm" action="https://formspree.io/f/mzzrlkjr" method="POST" style="margin-top: 2rem;">
+      <input type="email" name="email" id="email" placeholder="Tu correo electrónico"
+        required style="padding: 0.5rem; border: 1px solid #ccc; border-radius: 6px; width: 250px;">
+      <button type="submit"
+        style="padding: 0.5rem 1rem; margin-left: 0.5rem; background-color: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer;">
+        Unirse
+      </button>
     </form>
-    <div id="confirmation">¡Gracias por unirte!</div>
-    <div id="errorMsg">Por favor, introduce un correo válido.</div>
-  </div>
+    <div id="confirmation" style="margin-top: 1rem; color: #16a34a; font-weight: bold; display: none;">
+      ✅ ¡Gracias por unirte!
+    </div>
+    <div id="errorMsg" style="margin-top: 1rem; color: #dc2626; font-weight: bold; display: none;">
+      Por favor, introduce un correo válido.
+    </div>
+  </section>
 
-  <footer>© 2025 ModoMath &nbsp;&nbsp;&nbsp; hola@modomath.com</footer>
+  <!-- FOOTER -->
+  <footer>
+    © 2025 ModoMath · hola@modomath.com
+  </footer>
 
+  <!-- FORM SCRIPT -->
   <script>
-    const joinButton = document.getElementById("joinButton");
-    const signupForm = document.getElementById("signupForm");
     const emailForm = document.getElementById("emailForm");
     const confirmation = document.getElementById("confirmation");
     const errorMsg = document.getElementById("errorMsg");
     const emailInput = document.getElementById("email");
 
-    joinButton.addEventListener("click", () => {
-      signupForm.classList.toggle("show");
-      confirmation.style.display = "none";
-      errorMsg.style.display = "none";
-    });
-
-    emailForm.addEventListener("submit", function(e) {
+    emailForm.addEventListener("submit", function (e) {
       e.preventDefault();
       const email = emailInput.value.trim();
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -173,7 +197,6 @@
           emailForm.reset();
           confirmation.style.display = "block";
           setTimeout(() => {
-            signupForm.classList.remove("show");
             confirmation.style.display = "none";
           }, 5000);
         } else {
@@ -182,5 +205,6 @@
       });
     });
   </script>
+
 </body>
 </html>
