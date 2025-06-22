@@ -1,210 +1,273 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ModoMath</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   ModoMath
+  </title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
   <style>
+   * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #ffffff;
       color: #1f2937;
-      scroll-behavior: smooth;
+      background-color: #ffffff;
     }
 
     section {
-      padding: 4rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4rem 2rem;
+    }
+
+    .hero {
+      position: relative;
+      background: #ffffff;
       text-align: center;
+    }
+
+    .hero img {
+      max-width: 320px;
+      margin-bottom: 24px;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      animation: bounce 2s infinite;
+      font-size: 2.5rem;
+      color: #2563eb;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(10px);
+      }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
+    }
+
+    p.subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      color: #6b7280;
+      width: 100%;
       max-width: 800px;
-      margin: 0 auto;
+      text-align: left;
+      margin-bottom: 0.5rem;
     }
 
-    h1, h2 {
-      font-weight: 700;
+    .mission-content {
+      max-width: 800px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 1.6;
+      text-align: justify;
     }
 
-    p {
+    .principle {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem 1rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+
+    .principle.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .principle img {
+      width: 260px;
+      margin-bottom: 1rem;
+    }
+
+    .principle h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: #111827;
+      text-align: center;
+    }
+
+    .principle p {
+      max-width: 600px;
       font-size: 1.1rem;
       line-height: 1.6;
-      color: #4b5563;
+      text-align: justify;
     }
 
-    .pillars {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-
-    .pillars div {
-      font-size: 1.1rem;
-    }
-
-    .section-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .section-links a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      background-color: #f3f4f6;
-      font-size: 0.9rem;
-      color: #6b7280;
-    }
-
-    input, button {
-      font-family: inherit;
-      font-size: 1rem;
-    }
-
-    @media(min-width: 600px) {
-      .pillars {
+    @media (min-width: 768px) {
+      .principle {
         flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .pillars div {
-        width: 200px;
-      }
-
-      .section-links {
-        flex-direction: row;
-        justify-content: center;
+        justify-content: space-between;
+        text-align: left;
         gap: 2rem;
+      }
+
+      .principle:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .principle img {
+        flex: 0 0 40%;
+      }
+
+      .principle div {
+        flex: 0 0 60%;
+      }
+
+      .principle h2 {
+        text-align: left;
       }
     }
   </style>
-</head>
-<body>
-
-  <!-- HERO -->
-  <section id="hero">
-    <h1>ModoMath</h1>
-    <p>Creemos que aprender matemáticas puede ser visual, real y comprensible.</p>
-    <div class="section-links">
-      <a href="#sobre">Conoce ModoMath</a>
-      <a href="#recursos">Recursos</a>
-      <a href="#formacion">Formación</a>
-    </div>
-  </section>
-
-  <!-- SOBRE -->
-  <section id="sobre">
-    <h2>Sobre ModoMath</h2>
-    <p>Creemos en dar espacio para pensar, explorar y equivocarse con sentido.</p>
-    <div class="pillars">
-      <div>🔍 Resolución de problemas</div>
-      <div>🧠 Razonamiento visual</div>
-      <div>💬 Comunicación matemática</div>
-      <div>🎯 Centrado en competencias</div>
-      <div>📘 Alineado con la LOMLOE</div>
-    </div>
-    <p>
-      ModoMath nace del deseo de hacer las matemáticas más accesibles, visuales y conectadas con la vida real.
-      Diseñamos cada unidad para que el alumnado explore ideas, resuelva con sentido y se comunique con claridad—
-      todo alineado con la LOMLOE y con mínima preparación para el profesorado.
-    </p>
-  </section>
-
-  <!-- RECURSOS -->
-  <section id="recursos">
-    <h2>Recursos para el Aula</h2>
-    <p>Estamos preparando recursos descargables gratuitos y kits completos de unidad.</p>
-    <p><strong>Próximamente</strong></p>
-  </section>
-
-  <!-- FORMACION -->
-  <section id="formacion">
-    <h2>Formación Docente</h2>
-    <p>Mini-cursos sobre enseñanza visual, resolución de problemas y diseño curricular.</p>
-    <p><strong>Próximamente</strong></p>
-  </section>
-
-  <!-- BLOG -->
-  <section id="blog">
-    <h2>Explora nuestras ideas</h2>
-    <p>Artículos sobre educación matemática, metodologías y reflexiones del aula.</p>
-    <p><strong>Próximamente</strong></p>
-  </section>
-
-  <!-- NEWSLETTER -->
-  <section id="newsletter">
-    <h2>Únete a la comunidad ModoMath</h2>
-    <p style="color: #6b7280;">
-      Recibe novedades, recursos gratuitos y próximos lanzamientos directamente en tu correo.
-    </p>
-    <form id="emailForm" action="https://formspree.io/f/mzzrlkjr" method="POST" style="margin-top: 2rem;">
-      <input type="email" name="email" id="email" placeholder="Tu correo electrónico"
-        required style="padding: 0.5rem; border: 1px solid #ccc; border-radius: 6px; width: 250px;">
-      <button type="submit"
-        style="padding: 0.5rem 1rem; margin-left: 0.5rem; background-color: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer;">
-        Unirse
-      </button>
-    </form>
-    <div id="confirmation" style="margin-top: 1rem; color: #16a34a; font-weight: bold; display: none;">
-      ✅ ¡Gracias por unirte!
-    </div>
-    <div id="errorMsg" style="margin-top: 1rem; color: #dc2626; font-weight: bold; display: none;">
-      Por favor, introduce un correo válido.
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2025 ModoMath · hola@modomath.com
-  </footer>
-
-  <!-- FORM SCRIPT -->
   <script>
-    const emailForm = document.getElementById("emailForm");
-    const confirmation = document.getElementById("confirmation");
-    const errorMsg = document.getElementById("errorMsg");
-    const emailInput = document.getElementById("email");
+   document.addEventListener("DOMContentLoaded", function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
 
-    emailForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const email = emailInput.value.trim();
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      if (!emailRegex.test(email)) {
-        errorMsg.style.display = "block";
-        confirmation.style.display = "none";
-        return;
-      }
-
-      errorMsg.style.display = "none";
-
-      const formData = new FormData(emailForm);
-      fetch(emailForm.action, {
-        method: "POST",
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          emailForm.reset();
-          confirmation.style.display = "block";
-          setTimeout(() => {
-            confirmation.style.display = "none";
-          }, 5000);
-        } else {
-          alert("Hubo un error. Inténtalo más tarde.");
-        }
-      });
+      document.querySelectorAll('.principle').forEach(el => observer.observe(el));
     });
   </script>
-
-</body>
+ </head>
+ <body>
+  <section class="hero" id="home">
+   <img alt="ModoMath Logo" src="assets/images/logo.png"/>
+   <h1>
+    Matem&aacute;ticas para el mundo real
+   </h1>
+   <p class="subtitle">
+    Explora. Representa. Resuelve.
+   </p>
+   <a class="cta-button" href="#newsletter" style="display: inline-block; margin: 1rem auto; padding: 0.8rem 1.4rem; background-color: #2563eb; color: white; border-radius: 6px; text-decoration: none; font-weight: bold;">
+    &Uacute;nete a la comunidad
+   </a>
+   <a class="scroll-down" href="#mision">
+    &darr;
+   </a>
+  </section>
+  <section id="mision">
+   <div class="section-title">
+    NUESTRA MISI&Oacute;N
+   </div>
+   <div class="mission-content">
+    Creemos que aprender matem&aacute;ticas puede ser visual, real y comprensible.  
+      Nuestro objetivo es desarrollar habilidades matem&aacute;ticas aut&eacute;nticas a trav&eacute;s de experiencias significativas, representaciones claras y razonamiento visual.
+   </div>
+  </section>
+  <section class="principle">
+   <img alt="Principio 1" src="assets/images/Principio1.png"/>
+   <div>
+    <h2>
+     Resolver para aprender
+    </h2>
+    <p>
+     Nuestras tareas est&aacute;n dise&ntilde;adas para que el alumnado explore, pruebe, manipule, razone y descubra. La comprensi&oacute;n se construye con sentido.
+    </p>
+   </div>
+  </section>
+  <section class="principle">
+   <img alt="Principio 2" src="assets/images/Principio2.png"/>
+   <div>
+    <h2>
+     Representar para entender
+    </h2>
+    <p>
+     Fomentamos el uso de dibujos, objetos, diagramas y modelos para visualizar ideas matem&aacute;ticas y afianzar la comprensi&oacute;n conceptual.
+    </p>
+   </div>
+  </section>
+  <section class="principle">
+   <img alt="Principio 3" src="assets/images/Principio3.png"/>
+   <div>
+    <h2>
+     Comunicar para reforzar
+    </h2>
+    <p>
+     El alumnado explica, escucha y argumenta con claridad, construyendo significado y desarrollando pensamiento matem&aacute;tico a trav&eacute;s del lenguaje.
+    </p>
+   </div>
+  </section>
+  <section class="principle">
+   <img alt="Principio 4" src="assets/images/Principio4.png"/>
+   <div>
+    <h2>
+     Conectar para razonar
+    </h2>
+    <p>
+     Ayudamos al alumnado a establecer conexiones entre ideas matem&aacute;ticas y entre distintos contextos. Las conexiones fortalecen el sentido.
+    </p>
+   </div>
+  </section>
+  <section class="principle">
+   <img alt="Principio 5" src="assets/images/Principio5.png"/>
+   <div>
+    <h2>
+     Dise&ntilde;ar para pensar
+    </h2>
+    <p>
+     Dise&ntilde;amos estructuras, herramientas y entornos que favorecen el pensamiento. La arquitectura de cada tarea gu&iacute;a sin limitar.
+    </p>
+   </div>
+  </section>
+  <section class="principle">
+   <img alt="Principio 6" src="assets/images/Principio6.png"/>
+   <div>
+    <h2>
+     Equivocarse para avanzar
+    </h2>
+    <p>
+     Promovemos una cultura que valora los errores como parte natural del aprendizaje. Los errores nos ofrecen informaci&oacute;n &uacute;til y nuevas ideas.
+    </p>
+   </div>
+  </section>
+  <section id="newsletter" style="padding: 5rem 2rem; background-color: #f9fafb; text-align: center;">
+   <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 1rem;">
+    &iquest;Quieres estar al d&iacute;a?
+   </h2>
+   <p style="font-size: 1.1rem; margin-bottom: 2rem;">
+    Suscr&iacute;bete para recibir novedades sobre recursos, formaciones y art&iacute;culos.
+   </p>
+   <form action="https://formspree.io/f/mzzrlkjr" method="POST" style="display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
+    <input name="email" placeholder="Tu correo electr&oacute;nico" required="" style="padding: 0.7rem; font-size: 1rem; border-radius: 6px; border: 1px solid #ccc; width: 250px;" type="email"/>
+    <button style="padding: 0.7rem 1.5rem; font-size: 1rem; background-color: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer;" type="submit">
+     Unirse
+    </button>
+   </form>
+  </section>
+  <footer style="text-align: center; padding: 2rem; font-size: 0.9rem; color: #6b7280;">
+   &copy; 2025 ModoMath &mdash; hola@modomath.com
+  </footer>
+ </body>
 </html>
